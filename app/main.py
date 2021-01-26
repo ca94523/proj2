@@ -1,3 +1,6 @@
+
+import sys
+
 from flask import Flask
 
 app = Flask(__name__)
@@ -5,10 +8,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return "Hello World from Flask in a uWSGI Nginx Docker container with \
-     Python 3.8 (from the example template)"
-
-
-if __name__ == "__main__":
-    # Only for debugging while developing
-    app.run(host="0.0.0.0", debug=True, port=8080)
+    version = "{}.{}".format(sys.version_info.major, sys.version_info.minor)
+    message = "Hello World from Flask in a Docker container running Python {} with Meinheld and Gunicorn (default)".format(
+        version
+    )
+    return message
