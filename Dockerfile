@@ -9,7 +9,7 @@ COPY ./app /app
 WORKDIR /app/
 ENV PYTHONPATH=/app
 
-EXPOSE 8080
+EXPOSE 8000
 ENTRYPOINT ["/entrypoint.sh"]
 # Run the start script, it will check for an /app/prestart.sh script (e.g. for migrations)
 # And then will start Gunicorn with Meinheld
