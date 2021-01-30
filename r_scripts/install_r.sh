@@ -21,7 +21,11 @@ apt-get update && apt-get -y install --no-install-recommends r-base r-base-dev
 
 rm -rf /var/lib/apt/lists/*
 
-Rscript -e "install.packages(c('littler', 'docopt'))"
+
+echo "options(repos = c(CRAN = 'https://packagemanager.rstudio.com/all/__linux__/bionic/latest'), download.file.method = 'libcurl')" >> /usr/lib/R/etc/Rprofile.site
+Rscript -e "options(HTTPUserAgent = sprintf('R/%s R (%s)', getRversion(), paste(getRversion(), R.version$platform, R.version$arch, R.version$os)))"
+Rscript -e 'options(download.file.extra = sprintf("--header \"User-Agent: R (%s)\"", paste(getRversion(), R.version$platform, R.version$arch, R.version$os)))'
+Rscript -e "install.packages(c('littler', 'docopt'), repos='https://packagemanager.rstudio.com/all/__linux__/bionic/latest')"
 
 ## By default R_LIBS_SITE is unset, and defaults to this, so this is where `littler` will be.
 ## We set it here for symlinks, but don't make the env var persist (since it's already the default)

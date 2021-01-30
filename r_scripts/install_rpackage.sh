@@ -19,7 +19,7 @@ apt-get update -qq && apt-get -y --no-install-recommends install \
 #remove/add packages as necessary
 #check here to check if binary, or source compiled, and check dependency
 #https://packagemanager.rstudio.com/client/#/repos/1/packages
-install2.r --error --skipinstalled -r https://packagemanager.rstudio.com/all/__linux__/bionic/latest -n -1 \
+install2.r --error --skipinstalled -r https://packagemanager.rstudio.com/all/__linux__/bionic/latest -n 1 \
     dplyr 
 
  rm -rf /tmp/downloaded_packages
