@@ -30,6 +30,8 @@ workers = web_concurrency
 bind = use_bind
 keepalive = 120
 errorlog = "-"
+worker_tmp_dir = "/dev/shm"
+worker_class = 'gthread'
 
 # For debugging and testing
 log_data = {
