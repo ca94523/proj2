@@ -27,9 +27,9 @@ Rscript -e "install.packages(c('littler', 'docopt'), repos='https://packagemanag
 
 ## By default R_LIBS_SITE is unset, and defaults to this, so this is where `littler` will be.
 ## We set it here for symlinks, but don't make the env var persist (since it's already the default)
-#R_LIBS_SITE=/usr/local/lib/R/site-library
-#ln -s ${R_LIBS_SITE}/littler/examples/install.r /usr/local/bin/install.r
-#ln -s ${R_LIBS_SITE}/littler/examples/install2.r /usr/local/bin/install2.r
-#ln -s ${R_LIBS_SITE}/littler/examples/installGithub.r /usr/local/bin/installGithub.r
-#ln -s ${R_LIBS_SITE}/littler/bin/r /usr/local/bin/r
+R_LIBS_SITE=/usr/local/lib/R/site-library
+ln -s ${R_LIBS_SITE}/littler/examples/install.r /usr/local/bin/install.r
+ln -s ${R_LIBS_SITE}/littler/examples/install2.r /usr/local/bin/install2.r
+ln -s ${R_LIBS_SITE}/littler/examples/installGithub.r /usr/local/bin/installGithub.r
+ln -s ${R_LIBS_SITE}/littler/bin/r /usr/local/bin/r
 
