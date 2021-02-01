@@ -12,4 +12,6 @@ else
 fi
 
 # Start Gunicorn
-exec gunicorn -k egg:meinheld#gunicorn_worker -c "$GUNICORN_CONF" "$APP_MODULE" --worker-tmp-dir /dev/shm
+#exec gunicorn -k egg:meinheld#gunicorn_worker -c "$GUNICORN_CONF" "$APP_MODULE" --worker-tmp-dir /dev/shm
+exec gunicorn -k egg:meinheld#gunicorn_worker -c "$GUNICORN_CONF" app.main:app --worker-tmp-dir /dev/shm
+#exec gunicorn -k egg:meinheld#gunicorn_worker -c "$GUNICORN_CONF" main:app --worker-tmp-dir /dev/shm

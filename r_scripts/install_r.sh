@@ -18,8 +18,11 @@ apt-get -y install --no-install-recommends \
 apt-key adv --keyserver keys.gnupg.net --recv-key 'E19F5F87128899B192B1A2C2AD5F960A256A04AF'
 add-apt-repository 'deb http://cloud.r-project.org/bin/linux/debian buster-cran40/'
 apt-get update && apt-get -y install --no-install-recommends r-base r-base-dev
-#default install to /usr/lib/R
 rm -rf /var/lib/apt/lists/*
+
+#default install to /usr/lib/R
+R_HOME=${R_HOME:-/usr/lib/R}
+
 
 echo "options(repos = c(CRAN = 'https://packagemanager.rstudio.com/all/__linux__/bionic/latest'), download.file.method = 'libcurl')" >> /usr/lib/R/etc/Rprofile.site
 echo "options(HTTPUserAgent = sprintf('R/%s R (%s)', getRversion(), paste(getRversion(), R.version$platform, R.version$arch, R.version$os)))" >> /usr/lib/R/etc/Rprofile.site
