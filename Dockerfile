@@ -4,7 +4,6 @@ COPY ./entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 COPY ./start.sh /start.sh
 RUN chmod +x /start.sh
-COPY ./gunicorn_conf.py /gunicorn_conf.py
 #COPY ./app /app
 COPY ./config.py /config.py
 #WORKDIR /app/
@@ -21,6 +20,7 @@ COPY ./requirements.txt /requirements.txt
 RUN pip install -r /requirements.txt
 ################################
 COPY ./app /app
+COPY ./gunicorn_conf.py /gunicorn_conf.py
 EXPOSE 8000
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["/start.sh"]

@@ -26,7 +26,9 @@ else:
 
 # Gunicorn config variables
 loglevel = use_loglevel
-workers = web_concurrency
+#workers = web_concurrency
+workers = 4
+threads = 4
 bind = use_bind
 keepalive = 120
 errorlog = "-"
