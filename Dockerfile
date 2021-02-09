@@ -14,10 +14,11 @@ COPY ./config.py /config.py
 COPY r_scripts /r_scripts
 RUN chmod -R +x /r_scripts
 RUN /r_scripts/install_r.sh
-RUN /r_scripts/install_rpackage.sh
 ################################
 COPY ./requirements.txt /requirements.txt
 RUN pip install -r /requirements.txt
+################################
+RUN /r_scripts/install_rpackage.sh
 ################################
 COPY ./app /app
 COPY ./gunicorn_conf.py /gunicorn_conf.py
