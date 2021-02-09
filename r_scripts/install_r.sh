@@ -15,7 +15,8 @@ apt-get -y install --no-install-recommends \
       software-properties-common \
       apt-transport-https
 
-apt-key adv --keyserver keys.gnupg.net --recv-key 'E19F5F87128899B192B1A2C2AD5F960A256A04AF'
+#apt-key adv --keyserver keys.gnupg.net --recv-key 'E19F5F87128899B192B1A2C2AD5F960A256A04AF'
+apt-key adv --keyserver keyserver.ubuntu.com --recv-key 'E19F5F87128899B192B1A2C2AD5F960A256A04AF'
 add-apt-repository 'deb http://cloud.r-project.org/bin/linux/debian buster-cran40/'
 apt-get update && apt-get -y install --no-install-recommends r-base r-base-dev
 rm -rf /var/lib/apt/lists/*
